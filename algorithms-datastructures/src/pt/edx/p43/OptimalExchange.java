@@ -79,17 +79,15 @@ public class OptimalExchange {
 		}
 	}
 
-	public static boolean isPredecessor(Node n, Node p) {
+	static boolean isPredecessor(Node n, Node p) {
 		while(n != null) {
-			if(n.predecessor == p) {
-				return true;
-			}
-			
+			if(n.predecessor.value == p.value) { return true; }
 			n = n.predecessor;
 		}
 		return false;
 	}
-	public static void setNegativeLoop(final Node negFirst, Node negDetect) {
+	
+	static void setNegativeLoop(final Node negFirst, Node negDetect) {
 		negFirst.minDistance = Long.MIN_VALUE;
 		while (negDetect != null && negDetect.value != negFirst.value) {
 			negDetect.minDistance = Long.MIN_VALUE;

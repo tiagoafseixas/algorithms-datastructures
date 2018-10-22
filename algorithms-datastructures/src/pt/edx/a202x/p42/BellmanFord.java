@@ -1,4 +1,4 @@
-package pt.edx.p42;
+package pt.edx.a202x.p42;
 
 import java.util.ArrayList;
 import java.util.Scanner;

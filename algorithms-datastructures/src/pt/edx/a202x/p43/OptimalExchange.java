@@ -1,4 +1,4 @@
-package pt.edx.p43;
+package pt.edx.a202x.p43;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -89,8 +89,14 @@ public class OptimalExchange {
 	
 	static void setNegativeLoop(final Node negFirst, Node negDetect) {
 		negFirst.minDistance = Long.MIN_VALUE;
+		for(Edge e : negFirst.edges) {
+			e.destination.minDistance = Long.MIN_VALUE;
+		}
 		while (negDetect != null && negDetect.value != negFirst.value) {
 			negDetect.minDistance = Long.MIN_VALUE;
+			for(Edge e : negDetect.edges) {
+				e.destination.minDistance = Long.MIN_VALUE;
+			}
 			negDetect = negDetect.predecessor;
 		}
 	}
